@@ -18,6 +18,8 @@ func is_moving(input: float) -> bool:
 func update_animation(input: float) -> void:
 	if not is_on_floor():
 		animation_player.play("jump")
+		if is_moving(input):
+			sprite_2d.scale.x = sign(input) 
 		return
 
 	if is_moving(input):
