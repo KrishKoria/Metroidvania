@@ -46,4 +46,5 @@ func _physics_process(delta: float) -> void:
 	apply_horizontal_movement(delta, input)
 	var jump = Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_accept")
 	apply_jump(jump)
+	update_animation(input)
 	move_and_slide()
