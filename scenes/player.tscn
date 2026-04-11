@@ -98,3 +98,7 @@ shape = SubResource("RectangleShape2D_g2els")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=281126054]
 libraries/ = SubResource("AnimationLibrary_qlg0r")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=876035194]
+position = Vector2(0, -8)
+zoom = Vector2(1.5, 1.5)
