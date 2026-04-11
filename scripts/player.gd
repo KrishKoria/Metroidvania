@@ -7,8 +7,23 @@ extends CharacterBody2D
 @export var gravity = 200
 @export var jump_force = 128
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
 func is_moving(input: float) -> bool:
 	return input != 0
+
+
+func update_animation(input: float) -> void:
+	if is_moving(input):
+		animation_player.play("run")
+		sprite_2d.scale.x = sign(input)
+	else:
+		animation_player.play("idle")
+		
+	if not is_on_floor():
+		animation_player.play("jump")
+	
 
 func apply_gravity(delta: float) -> void:
 	if not is_on_floor():
