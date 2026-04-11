@@ -95,3 +95,6 @@ hframes = 12
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=155127877]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_g2els")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=281126054]
+libraries/ = SubResource("AnimationLibrary_qlg0r")
