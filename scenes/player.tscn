@@ -84,6 +84,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" unique_id=1946688074]
+floor_constant_speed = true
 floor_snap_length = 2.0
 script = ExtResource("1_g2els")
 
