@@ -9,7 +9,9 @@ extends CharacterBody2D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var edge_left_timer: Timer = $EdgeLeftTimer
 
+const DustEffectScene = preload("res://scenes/dust_effect.tscn")
 
 func is_moving(input: float) -> bool:
 	return input != 0
@@ -42,13 +44,18 @@ func apply_horizontal_movement(delta: float, input: float) -> void:
 
 
 func apply_jump(jump_pressed: bool, jump_released: bool) -> void:
-	if is_on_floor():
+	if is_on_floor() or edge_left_timer.time_left > 0.0:
 		if jump_pressed:
 			velocity.y = -jump_force
-	else:
+	if not is_on_floor():
 		if jump_released and velocity.y < -jump_force / 2:
 			velocity.y = -jump_force / 2
 
+func create_dust_effect():
+	var dust_effect = DustEffectScene.instantiate()
+	var main = get_tree().current_scene
+	main.add_child(dust_effect)
+	dust_effect.global_position = global_position
 
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
@@ -61,4 +68,9 @@ func _physics_process(delta: float) -> void:
 	apply_jump(jump_pressed, jump_released)
 
 	update_animation(input)
+	var was_on_floor = is_on_floor() 
 	move_and_slide()
+	var just_left_edge = was_on_floor and not is_on_floor() and velocity.y >= 0
+	if just_left_edge:
+		edge_left_timer.start()
+		
