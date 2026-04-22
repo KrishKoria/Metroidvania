@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b47ea886o3o20"]
+
+[ext_resource type="Texture2D" uid="uid://rse0aj27678j" path="res://assets/player/player_bullet.png" id="1_mkf8s"]
+
+[node name="Bullet" type="Node2D" unique_id=737340718]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1876614065]
+texture = ExtResource("1_mkf8s")
+hframes = 2
+frame = 1
