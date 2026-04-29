@@ -50,9 +50,7 @@ func apply_jump(jump_pressed: bool, jump_released: bool) -> void:
 			velocity.y = -jump_force / 2
 
 func create_dust_effect() -> void:
-	var dust_effect = DustEffectScene.instantiate()
-	get_tree().current_scene.add_child(dust_effect)
-	dust_effect.global_position = global_position
+	Utils.instantiate_on_world(DustEffectScene, global_position)
 
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
@@ -61,8 +59,8 @@ func _physics_process(delta: float) -> void:
 	var jump_pressed = Input.is_action_just_pressed("jump")
 	var jump_released = Input.is_action_just_released("jump")
 	apply_jump(jump_pressed, jump_released)
-	if Input.is_action_just_pressed("fire"):
-		player_blaster.fire_bullet()
+	if Input.is_action_pressed("fire"):
+		player_blaster.try_fire()
 	update_animation(input)
 	var was_on_floor = is_on_floor()
 	move_and_slide()

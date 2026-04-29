@@ -11,4 +11,4 @@ texture = ExtResource("1_h8ybk")
 offset = Vector2(4, 0)
 
 [node name="Muzzle" type="Marker2D" parent="BlasterSprite" unique_id=1662476379]
-position = Vector2(11, 0)
+position = Vector2(9, 0)
