@@ -1,9 +1,11 @@
 [gd_scene format=4 uid="uid://7tvxvsijnn81"]
 
+[ext_resource type="Script" uid="uid://dt567jbbmmkcg" path="res://scripts/world.gd" id="1_4wyf3"]
 [ext_resource type="PackedScene" uid="uid://nchkkvvohg75" path="res://scenes/player.tscn" id="1_nnsk1"]
 [ext_resource type="PackedScene" uid="uid://l4qj1ytc5jua" path="res://scenes/world_tile_map.tscn" id="2_rwgxs"]
 
 [node name="World" type="Node2D" unique_id=1242494755]
+script = ExtResource("1_4wyf3")
 
 [node name="Player" parent="." unique_id=1946688074 instance=ExtResource("1_nnsk1")]
 position = Vector2(334, 213)

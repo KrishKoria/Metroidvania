@@ -2,7 +2,7 @@ extends Node2D
 
 const BulletScene = preload("res://scenes/bullet.tscn")
 
-@export var fire_interval := 0.15 # seconds between bullets. Lower = faster fire rate.
+@export var fire_interval := 0.25
 
 @onready var blaster_sprite: Sprite2D = $BlasterSprite
 @onready var muzzle: Marker2D = $BlasterSprite/Muzzle

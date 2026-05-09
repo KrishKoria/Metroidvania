@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b47ea886o3o20"]
 
 [ext_resource type="PackedScene" uid="uid://uwvhh7enb8dr" path="res://scenes/projectile.tscn" id="1_mkf8s"]
+[ext_resource type="Script" uid="uid://duitvb3ketk6c" path="res://scenes/bullet.gd" id="2_l5glv"]
 [ext_resource type="Texture2D" uid="uid://rse0aj27678j" path="res://assets/player/player_bullet.png" id="2_y25gk"]
 
 [sub_resource type="Animation" id="Animation_y25gk"]
@@ -34,6 +35,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.05),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"set_process"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eoqba"]
 _data = {
@@ -42,6 +57,7 @@ _data = {
 }
 
 [node name="Bullet" unique_id=919896385 instance=ExtResource("1_mkf8s")]
+script = ExtResource("2_l5glv")
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="0" unique_id=1665696585]
 rect = Rect2(-4, -3, 8, 6)
