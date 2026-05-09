@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cm7ih3gxvf83q" path="res://scripts/projectile.gd" id="1_c8fcr"]
 
 [node name="Projectile" type="Node2D" unique_id=919896385]
+z_index = 15
 script = ExtResource("1_c8fcr")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1665696585]
